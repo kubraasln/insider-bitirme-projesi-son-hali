@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders</title>
+    <link rel="stylesheet" href="/Dashboard/Dashboard.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
+  </head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+
+  <body>
+    <!-----YAN SEKME------>
+    <div class="container">
+      <aside id="aside">
+        <div class="top">
+          <div class="logo">
+            <img src="rlogo.png" alt="" />
+            <h2>Pro-Duct</h2>
+          </div>
+          <div class="close" id="close-btn">
+            <span class="material-icons-sharp"> close</span>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <a href="/Dashboard/Dashboard.html" class="active">
+            <span class="material-icons-sharp">grid_view</span>
+            <h3>Dashboard</h3>
+          </a>
+          <a href="/Orders/Orders.html">
+            <span class="material-icons-sharp">receipt_long </span>
+            <h3>Orders</h3>
+          </a>
+          <a href="/Analytics/Analytics.html">
+            <span class="material-icons-sharp">insights</span>
+            <h3>Analytics</h3>
+          </a>
+          <a href="/Messages/Messages.html">
+            <span class="material-icons-sharp">mail_outline</span>
+            <h3>Messages</h3>
+            <span class="message-count">4</span>
+          </a>
+          <a href="/Add-Product/Products.html" >
+            <span class="material-icons-sharp">inventory</span>
+            <h3>Products</h3>
+        </a>
+        <a href="/Add-Product/Reports.html">
+            <span class="material-icons-sharp">report</span>
+            <h3>Reports</h3>
+        </a>
+        <a href="/Add-Product/Settings.html">
+            <span class="material-icons-sharp">settings</span>
+            <h3>Settings</h3>
+        </a>
+          <a href="/Add-Product/Add-product.html">
+            <span class="material-icons-sharp">add</span>
+            <h3>Add Product</h3>
+          </a>
+          <a href="/index.html">
+            <span class="material-icons-sharp">logout</span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+
+      <!-- ------ASİDE BİTİYOR BURDAA ------->
+
+      <!-- ------ANA BÖLÜM ------->
+
+      <!-- // RESİM/TEXT EKLEME ÇIKARMA -->
+      <div class="add-text-img" id="createList">
+        <a href="#" onclick="listClose()" id="listClose"
+          ><span class="material-icons-sharp" id="close-icon-toDoList"
+            >close</span
+          ></a
+        >
+        <canvas id="c" width="800" height="600"></canvas>
+
+        <div class="adds_position">
+          <div class="add-text">
+            <input type="text" id="userInput" placeholder="Add Text" />
+            <button onclick="addText()">Add Text</button>
+          </div>
+
+          <div class="add-img">
+            <input type="file" id="imageInput" accept="image/*" />
+            <button onclick="addImage()">Add Image</button>
+          </div>
+
+          <button onclick="deleteObject()" id="deteleBtn">Detele Item</button>
+          <button id="add-to-do-list" onclick="addToDoList()">
+            Create List
+          </button>
+        </div>
+      </div>
+
+      <main id="main">
+        <h1>Dashboard</h1>
+        <!-----Tarih bölümü---->
+        <div class="date">
+          <input type="date" />
+        </div>
+
+        <!-----Satışlar Bölümü---->
+        <div class="insights">
+          <div class="sales">
+            <span class="material-icons-sharp">analytics</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Sales</h3>
+                <h1>$25.137</h1>
+              </div>
+              <!-----Dönen oran---->
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>81%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-----Satışlar Bölümü BİTİŞİ---->
+
+          <!-----EXPENSES bÖLÜMÜ---->
+          <div class="expenses">
+            <span class="material-icons-sharp">bar_chart</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Expenses</h3>
+                <h1>$14.007</h1>
+              </div>
+              <!-----Dönen oran---->
+              <div class="progress">
+                <svg>
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>64%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-----EXPENSES BİTİŞ---->
+
+          <!-----income bÖLÜMÜ---->
+          <div class="income">
+            <span class="material-icons-sharp">stacked_line_chart</span>
+            <div class="middle">
+              <div class="left">
+                <h3>Total Income</h3>
+                <h1>$10.937</h1>
+              </div>
+              <!-----Dönen oran---->
+
+              <div class="progress">
+                <svg>
+                  s
+                  <circle cx="38" cy="38" r="36"></circle>
+                </svg>
+                <div class="number">
+                  <p>44%</p>
+                </div>
+              </div>
+            </div>
+            <small class="text-muted">Last 24 Hours</small>
+          </div>
+          <!-----İNCOME  BİTİŞ---->
+        </div>
+        <!---ÜSTTEKİ VERİLER BİTTİ--->
+
+        <!---RECENT ORDERS TABLE--->
+        <div class="recent-orders">
+          <h2>Recent Orders</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Product Number</th>
+                <th>Payment</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <a href="#">Last 24 Hours</a>
+        </div>
+
+        <!-------------To Do List--------------->
+        <h2 style="margin-bottom: 1rem; margin-left: 1rem; top: 0">
+          To Do List
+        </h2>
+        <section id="savedImagesSection">
+          <ul id="list">
+            <li><img src="list.png" alt="" /></li>
+          </ul>
+        </section>
+
+        <!-------------CUSTOMER REVİEWS--------------->
+      </main>
+
+      <!-- ------MAİN BİTİŞ ------->
+
+      <!-- ------PROFİLLER------->
+      <div class="right" id="right">
+        <div class="top">
+          <button id="menu-btn">
+            <span class="material-icons-sharp">menu</span>
+          </button>
+          <div class="theme-toggler">
+            <span class="material-icons-sharp active">light_mode</span>
+            <span class="material-icons-sharp">dark_mode</span>
+          </div>
+          <div class="profile">
+            <div class="info">
+              <p>Hey, <b>Daniel</b></p>
+              <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+              <img src="profil4.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <!-- ------PROFİLLER BİTİŞ------->
+
+        <div class="recent-updates">
+          <h2>Recent Updates</h2>
+          <div class="updates">
+            <div class="update">
+              <div class="profile-photo">
+                <img src="profil4.jpg" alt="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Donalp Trump</b> received his order of Night Lion Tech GPS
+                  Drone
+                </p>
+                <small class="text-muted">7 Minutes Ago</small>
+              </div>
+            </div>
+            <div class="update">
+              <div class="profile-photo">
+                <img src="profil4.jpg" alt="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Donalp Trump</b> received his order of Night Lion Tech GPS
+                  Drone
+                </p>
+                <small class="text-muted">7 Minutes Ago</small>
+              </div>
+            </div>
+            <!-- <div class="update">
+              <div class="profile-photo">
+                <img src="profil4.jpg" alt="" />
+              </div>
+              <div class="message">
+                <p>
+                  <b>Donalp Trump</b> received his order of Night Lion Tech GPS
+                  Drone
+                </p>
+                <small class="text-muted">7 Minutes Ago</small>
+              </div>
+            </div> -->
+          </div>
+        </div>
+
+        <!-- ------recent updates bitiş------------ -->
+
+        <div class="sales-analytics">
+          <h2>Sales Analytics</h2>
+
+          <div class="item online">
+            <div class="icon">
+              <span class="material-icons-sharp">shopping_cart</span>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>ONLINE ORDERS</h3>
+                <small class="text-muted">Last 24 Hours </small>
+              </div>
+              <h5 class="succsess">+32%</h5>
+              <h3>3849</h3>
+            </div>
+          </div>
+
+          <div class="item offline">
+            <div class="icon">
+              <span class="material-icons-sharp">local_mall</span>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>OFFLINE ORDERS</h3>
+                <small class="text-muted">Last 24 Hours </small>
+              </div>
+              <h5 class="danger">-19%</h5>
+              <h3>1100</h3>
+            </div>
+          </div>
+
+          <div class="item customers">
+            <div class="icon">
+              <span class="material-icons-sharp">person</span>
+            </div>
+            <div class="right">
+              <div class="info">
+                <h3>NEW COSTUMERS</h3>
+                <small class="text-muted">Last 24 Hours </small>
+              </div>
+              <h5 class="success">+23%</h5>
+              <h3>788</h3>
+            </div>
+          </div>
+          <a href="#" onclick="List()" id="openlisteditor">
+            <div class="item add-product">
+              <div>
+                <span class="material-icons-sharp">fact_check</span>
+                <h3>To Do List</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script src="Dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics</title>
+  <link rel="stylesheet" href="Analytics.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://fontawesome.com/icons/star-half-stroke?f=sharp&s=solid" />
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+  <script src="https://www.amcharts.com/docs/v5/concepts/animations/"></script>
+  <script src="https://www.amcharts.com/docs/v5/concepts/animations/"></script>
+  <script src=" https://www.amcharts.com/docs/v5/concepts/themes/"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script src="Analytics.js"></script>
+  <style>
+    #chartdiv {
+      width: 90% !important;
+      /* height: 500px; */
+    }
+  </style>
+</head>
+
+<style>
+  #chartdiv {
+    width: 100%;
+    height: 30rem;
+  }
+</style>
+
+<body>
+  <!-----YAN SEKME------>
+  <div class="container">
+    <aside>
+      <div class="topp">
+        <div class="logo">
+          <img src="rlogo.png" alt="" />
+          <h2>Pro-Duct</h2>
+        </div>
+        <div class="close" id="close-btn">
+          <span class="material-icons-sharp"> close</span>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <a href="/Dashboard/Dashboard.html">
+          <span class="material-icons-sharp">grid_view</span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="/Orders/Orders.html">
+          <span class="material-icons-sharp">receipt_long</span>
+          <h3>Orders</h3>
+        </a>
+        <a href="/Analytics/Analytics.html" class="active">
+          <span class="material-icons-sharp">insights</span>
+          <h3>Analytics</h3>
+        </a>
+        <a href="/Messages/Messages.html">
+          <span class="material-icons-sharp">mail_outline</span>
+          <h3>Messages</h3>
+          <span class="message-count">4</span>
+        </a>
+        <a href="/Add-Product/Products.html" >
+          <span class="material-icons-sharp">inventory</span>
+          <h3>Products</h3>
+      </a>
+      <a href="/Add-Product/Reports.html">
+          <span class="material-icons-sharp">report</span>
+          <h3>Reports</h3>
+      </a>
+      <a href="/Add-Product/Settings.html">
+          <span class="material-icons-sharp">settings</span>
+          <h3>Settings</h3>
+      </a>
+        <a href="/Add-Product/Add-product.html">
+          <span class="material-icons-sharp">add</span>
+          <h3>Add Product</h3>
+        </a>
+        <a href="/index.html">
+          <span class="material-icons-sharp">logout</span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
+
+
+    <!-- ------ASİDE BİTİYOR BURDAA ------->
+
+    <!-- ------MAİİN------->
+    <main>
+      <div class="totals">
+        <div style="display: grid; justify-content: center">
+          <h1>Analytics</h1>
+          <div class="box">
+            <span class="material-icons-sharp payment-icon">payments</span>
+            <h1>Revenue This Year</h1>
+            <h1 class="h1-goal">2.6M$</h1>
+            <div class="line">
+              <span class="line-color">..............................................................</span>
+            </div>
+            <div class="goal">
+              <h3>75%</h3>
+              <h3>3.5M$</h3>
+            </div>
+          </div>
+
+          <div class="box">
+            <span class="material-icons-sharp payment-icon">payments</span>
+            <h1>Average Score Of Products</h1>
+            <div class="stars">
+              <h2>0</h2>
+              <span><i class="fa fa-star star-color"></i></span>
+              <span><i class="fa fa-star star-color"></i></span>
+              <span><i class="fa fa-star star-color"></i></span>
+              <span><i class="fa fa-star"></i></span>
+              <span><i class="fa fa-star"></i></span>
+              <h2>5</h2>
+            </div>
+            <h3 class="text-muted">60%</h3>
+          </div>
+        </div>
+
+
+        <!-- FYGDGDFGDFFFFGG -->
+
+        <div class="recent-orders">
+          <div style="display: flex; align-items: center;">
+            <h1>Page Views Tracking</h1>
+            <select name="date" id="date" style="display: inline;">
+              <option value="Today">Today</option>
+              <option value="This Week">This Week</option>
+              <option value="This Month">This Month</option>
+              <option value="This Year">This Year</option>
+              <option value="This Year">All Times</option>
+            </select>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>From Where</th>
+                <th>User Views</th>
+                <th> New User Views</th>
+                <th> Advertisemet Vivews</th>
+                <th> Total Vivews</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+          <a href="#">Lorem İpsum Dolor</a>
+        </div>
+    </main>
+
+    <!-- Sağ köşede admin bölümü -->
+
+      <!-- Alt Section -->
+      <h1 style="position: fixed; bottom: 43%; left: 13%; z-index: 10;">Traffic Analytics By Year</h1>
+      <section class="section">
+        <div id="chartdiv"></div>
+      </section>
+    
+
+    <!-- Sağ bölüm -->
+    <div class="right">
+      <!-- Pie Chart -->
+      <div class="pie-chart">
+        <h1>Most Ordered Counturies Of All The Time </h1>
+        <canvas id="myyChart"></canvas>
+      </div>
+      <!-- Top Country List -->
+      <div class="pie-chart" style="margin-top: 5rem; height: 31rem;">
+        <h1>Top Countries</h1>
+        <h2>Visits <span style="color: rgb(57, 133, 104);font-size: medium;">Last Month +38%</span></h2>
+        <div style="display: grid;">
+          <div class="country">
+             <img src="USD.png" alt="">
+             <h2>United States</h2>
+             <h2><b> 20%</b></h2>
+          </div>
+          <div class="country">
+             <img src="Canada.png" alt="">
+             <h2>Canada</h2>
+             <h2><b> 17%</b></h2>
+          </div>
+          <div class="country">
+             <img src="Brazil.png" alt="">
+             <h2>Brazil</h2>
+             <h2><b> 11%</b></h2>
+          </div>
+          <div class="country">
+             <img src="Germany.png" alt="">
+             <h2>Germany</h2>
+             <h2><b> 9%</b></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin resmi absulote -->
+<img src="admin.png" class="admin-img">
+
+    <!-- Başka JS Dosyasına atınca çalışmıyor 
+    o yüzden Chartları buraya yazıyorum -->
+
+
+    <script>
+
+      // TRAFFİC CHART
+      am5.ready(function () {
+
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+
+
+        root.setThemes([
+          am5themes_Animated.new(root)
+        ]);
+
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        var chart = root.container.children.push(am5xy.XYChart.new(root, {
+          panX: false,
+          panY: false,
+          wheelX: "panX",
+          wheelY: "zoomX",
+          layout: root.verticalLayout
+        }));
+
+
+        // Add legend
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+        var legend = chart.children.push(
+          am5.Legend.new(root, {
+            centerX: am5.p50,
+            x: am5.p50
+          })
+        );
+
+        var data = [{
+          "year": "2021",
+          "europe": 2.5,
+          "namerica": 2.5,
+          "asia": 2.1,
+          "lamerica": 1,
+          "meast": 0.8,
+          "africa": 0.4
+        }, {
+          "year": "2022",
+          "europe": 2.6,
+          "namerica": 2.7,
+          "asia": 2.2,
+          "lamerica": 0.5,
+          "meast": 0.4,
+          "africa": 0.3
+        }, {
+          "year": "2023",
+          "europe": 2.8,
+          "namerica": 2.9,
+          "asia": 2.4,
+          "lamerica": 0.3,
+          "meast": 0.9,
+          "africa": 0.5
+        }]
+
+
+        // Create axes
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+        var xRenderer = am5xy.AxisRendererX.new(root, {
+          cellStartLocation: 0.1,
+          cellEndLocation: 0.9
+        })
+
+        var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+          categoryField: "year",
+          renderer: xRenderer,
+          tooltip: am5.Tooltip.new(root, {})
+        }));
+
+        xRenderer.grid.template.setAll({
+          location: 1
+        })
+
+        xAxis.data.setAll(data);
+
+        var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+          renderer: am5xy.AxisRendererY.new(root, {
+            strokeOpacity: 0.1
+          })
+        }));
+
+        // Add series
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+        function makeSeries(name, fieldName) {
+          var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+            name: name,
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: fieldName,
+            categoryXField: "year"
+          }));
+
+          series.columns.template.setAll({
+            tooltipText: "{name}, {categoryX}:{valueY}",
+            width: am5.percent(90),
+            tooltipY: 0,
+            strokeOpacity: 0
+          });
+
+          series.data.setAll(data);
+
+          series.appear();
+
+          series.bullets.push(function () {
+            return am5.Bullet.new(root, {
+              locationY: 0,
+              sprite: am5.Label.new(root, {
+                text: "{valueY}",
+                fill: root.interfaceColors.get("alternativeText"),
+                centerY: 0,
+                centerX: am5.p50,
+                populateText: true
+              })
+            });
+          });
+
+          legend.data.push(series);
+        }
+
+        makeSeries("Europe", "europe");
+        makeSeries("North America", "namerica");
+        makeSeries("Asia", "asia");
+        makeSeries("Latin America", "lamerica");
+        makeSeries("Middle East", "meast");
+        makeSeries("Africa", "africa");
+
+        chart.appear(1000, 100);
+
+      }); // end am5.ready()
+
+
+      // PİE CHART
+      var xValues = ["Italy", "France", "Spain", "USA", "Others"];
+      var yValues = [10, 15, 20, 25, 30];
+      var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145"
+      ];
+
+      new Chart("myyChart", {
+        type: "doughnut",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          title: {
+            display: true,
+            //   text: "World Wide Wine Production 2018"
+          }
+        }
+      });
+
+
+      // PAGE VİEW TRACKİNG
+
+      const Orders = [
+        {
+          productName: 'Home',
+          productNumber: '49347',
+          paymentStatus: '409',
+          shipping: '643',
+          advertisemet: '254344'
+        },
+
+        {
+          productName: 'Unisex T-shirt',
+          productNumber: '96996',
+          paymentStatus: '2,809',
+          shipping: '1954',
+          advertisemet: '2.0444'
+        },
+        {
+          productName: 'Gift For Her',
+          productNumber: '22821',
+          paymentStatus: '3512',
+          shipping: '74443',
+          advertisemet: '32.044',
+        },
+        {
+          productName: 'Minimalist',
+          productNumber: '81475',
+          paymentStatus: '409',
+          shipping: '3257345',
+          advertisemet: '72.044',
+        },
+        {
+          productName: 'Birthday',
+          productNumber: '00482',
+          paymentStatus: '9723',
+          shipping: '7534',
+          advertisemet: '42.044',
+        },
+        {
+          productName: 'Halloween',
+          productNumber: '00482',
+          paymentStatus: '2,809',
+          shipping: '7542',
+          advertisemet: '92.044',
+        },
+        {
+          productName: 'Colorful',
+          productNumber: '4682',
+          paymentStatus: '409',
+          shipping: '32523',
+          advertisemet: '52.044',
+        },
+        {
+          productName: 'Neclace',
+          productNumber: '00482',
+          paymentStatus: '1992',
+          shipping: '7531',
+          advertisemet: '92.044',
+        },
+        {
+          productName: 'Party Items',
+          productNumber: '8482',
+          paymentStatus: '2,809',
+          shipping: '3423',
+          advertisemet: '72.044',
+        },
+        {
+          productName: 'Baby Shower',
+          productNumber: '00482',
+          paymentStatus: '409',
+          shipping: '2312',
+          advertisemet: '92.044',
+        },
+
+      ]
+
+      //  listeye ekleme
+      Orders.forEach(order => {
+        const tr = document.createElement('tr');
+        const trContent = `
+      <td>${order.productName}</td>
+      <td>${order.productNumber}</td>
+      <td>${order.paymentStatus}</td>
+      <td>${order.advertisemet}</td>
+      <td class="${order.shipping === 'Declined' ? 'danger' : order.shipping === 'pending' ? 'warning' : 'primary'}">
+          ${order.shipping}
+      </td>
+      <td class="primary">Details</td> `;
+
+        tr.innerHTML = trContent;
+        document.querySelector('table tbody').appendChild(tr);
+      });
+    </script>
+
+</body>
+</html>
